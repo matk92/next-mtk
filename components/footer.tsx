@@ -85,7 +85,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-purple-500/20 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© 2024 Next-MTK. All rights reserved. Made with ❤️ for space enthusiasts.</p>
+          <p className="text-gray-400">© 2025 Next-MTK. All rights reserved. Made with ❤️ for space enthusiasts.</p>
         </div>
       </div>
     </footer>

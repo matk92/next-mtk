@@ -36,20 +36,22 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="nav-item flex items-center space-x-2 group">
-            <div className="relative">
-              <Rocket className="h-8 w-8 text-purple-400 group-hover:text-purple-300 transition-colors duration-300" />
-              <div className="absolute inset-0 bg-purple-400/20 rounded-full blur-lg group-hover:bg-purple-300/30 transition-all duration-300"></div>
-            </div>
-            <span className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
-              Next-MTK
-            </span>
-          </Link>
+        <div className="grid grid-cols-3 items-center h-16">
+          {/* Logo - Left */}
+          <div className="flex justify-start">
+            <Link href="/" className="nav-item flex items-center space-x-2 group">
+              <div className="relative">
+                <Rocket className="h-8 w-8 text-purple-400 group-hover:text-purple-300 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-purple-400/20 rounded-full blur-lg group-hover:bg-purple-300/30 transition-all duration-300"></div>
+              </div>
+              <span className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
+                Next-MTK
+              </span>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Center */}
+          <div className="hidden md:flex items-center justify-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -62,57 +64,59 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link href="/login">
-              <Button variant="ghost" className="nav-item text-gray-300 hover:text-purple-300 hover:bg-purple-500/10">
-                <LogIn className="h-4 w-4 mr-2" />
-                Login
-              </Button>
-            </Link>
-            <Link href="/register">
-              <Button className="nav-item bg-purple-600 hover:bg-purple-700 text-white">
-                <User className="h-4 w-4 mr-2" />
-                Register
-              </Button>
-            </Link>
-          </div>
+          {/* Auth Buttons - Right */}
+          <div className="flex items-center justify-end space-x-4">
+            <div className="hidden md:flex items-center space-x-4">
+              <Link href="/login">
+                <Button variant="ghost" className="nav-item text-gray-300 hover:text-purple-300 hover:bg-purple-500/10">
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Login
+                </Button>
+              </Link>
+              <Link href="/register">
+                <Button className="nav-item bg-purple-600 hover:bg-purple-700 text-white">
+                  <User className="h-4 w-4 mr-2" />
+                  Register
+                </Button>
+              </Link>
+            </div>
 
-          {/* Mobile Menu */}
-          <Sheet>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="text-gray-300 hover:text-purple-300">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-slate-900 border-purple-500/20">
-              <div className="flex flex-col space-y-4 mt-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-gray-300 hover:text-purple-300 transition-colors duration-300 py-2"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <div className="flex flex-col space-y-2 pt-4 border-t border-purple-500/20">
-                  <Link href="/login">
-                    <Button variant="ghost" className="w-full justify-start text-gray-300 hover:text-purple-300">
-                      <LogIn className="h-4 w-4 mr-2" />
-                      Login
-                    </Button>
-                  </Link>
-                  <Link href="/register">
-                    <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                      <User className="h-4 w-4 mr-2" />
-                      Register
-                    </Button>
-                  </Link>
+            {/* Mobile Menu */}
+            <Sheet>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon" className="text-gray-300 hover:text-purple-300">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="bg-slate-900 border-purple-500/20">
+                <div className="flex flex-col space-y-4 mt-8">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-gray-300 hover:text-purple-300 transition-colors duration-300 py-2"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                  <div className="flex flex-col space-y-2 pt-4 border-t border-purple-500/20">
+                    <Link href="/login">
+                      <Button variant="ghost" className="w-full justify-start text-gray-300 hover:text-purple-300">
+                        <LogIn className="h-4 w-4 mr-2" />
+                        Login
+                      </Button>
+                    </Link>
+                    <Link href="/register">
+                      <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                        <User className="h-4 w-4 mr-2" />
+                        Register
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </nav>
