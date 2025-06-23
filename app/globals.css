@@ -26,6 +26,17 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
   --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  /* Shadow variants */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  
+  /* Container configuration */
+  --container-center: true;
+  --container-padding: 2rem;
+  --container-screen-2xl: 1400px;
 }
 
 @layer base {
@@ -114,4 +125,39 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Additional utility classes */
+.shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+
+/* Button cursor fix */
+button,
+[role="button"],
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Ensure proper focus states */
+.focus-visible\:ring-ring\/50:focus-visible {
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.5);
+}
+
+.focus-visible\:border-ring:focus-visible {
+  border-color: hsl(var(--ring));
+}
+
+/* Aria invalid states */
+.aria-invalid\:ring-destructive\/20[aria-invalid="true"] {
+  box-shadow: 0 0 0 3px hsl(var(--destructive) / 0.2);
+}
+
+.aria-invalid\:border-destructive[aria-invalid="true"] {
+  border-color: hsl(var(--destructive));
+}
+
+/* Dark mode aria invalid */
+.dark .dark\:aria-invalid\:ring-destructive\/40[aria-invalid="true"] {
+  box-shadow: 0 0 0 3px hsl(var(--destructive) / 0.4);
 }
